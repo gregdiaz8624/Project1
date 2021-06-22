@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+	
+	
+	
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://java2105.czmq2k2hr6nq.us-east-1.rds.amazonaws.com:5432/postgres</property>
+		<property name="hibernate.connection.username">Gregory</property>
+		<property name="hibernate.connection.password">luna8624</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="use_sql"></property>
+		
+		
+		<mapping class="com.revature.models.Employee"></mapping>
+		<mapping class="com.revature.models.Request"></mapping>
+		<mapping class="com.revature.models.Event"></mapping>
+	
+	</session-factory>
+
+
+</hibernate-configuration>
