@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <title>AuthorLogin</title>
 </head>
-<body>
-    <section id="author">
-        <span>Username:</span>
-        <input id="username" type="text" placeholder='username'/>
-        <span>Password:</span>
-        <input id="password" type="password" placeholder='password' />
-        <button id="login-button" type="button" onclick='onLoginClick()'>Login</button>
-        <a href="/EmployeeLogin.html">EmployeeLogin</a>
-    </section>
+<body class="login__container">
 
-    <section id="author-data">
 
-    </section>
-    <script src="./AuthorLogin.js"></script>
+    <div class="topnav">
+   
+        <a href="authorlogin.html">Author Login</a>
+        <a href="employeelogin.html">Employee Login</a>
+        <a href="authorpage.html">Author Home</a>
+        <a href="help.html">Help</a>
+      </div>
+
+    <h1 class="login__header">Author Login</h1>
+    <br>
+
+
+    <div class="login">
+        <section id="author">
+            <label class="login__label"><span>Username:
+            </span>
+            </label>
+            <input id="username" type="text" placeholder="Username"  />
+            <br><br>
+            <label class="login__label"><span>Password:
+            </span>
+            </label>
+            <input id="password" type="password" placeholder="Password" />
+            <br><br>
+            <button id="login-button" type="button">Login</button>
+            <br><br>
+            <!-- <a class="login__link" href="employeelogin.html">EmployeeLogin</a> -->
+        </section>
+    </div>
+    <script src="./authorlogin.js"></script>
 </body>
 </html>

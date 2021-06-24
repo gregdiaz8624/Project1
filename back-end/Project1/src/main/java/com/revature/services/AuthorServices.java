@@ -4,8 +4,8 @@ import com.revature.models.Author;
 
 public interface AuthorServices {
 	
-	void addAuthor(Author a);
-	void updateAuthor(Integer id);
+
+	Author updateAuthor(Author auth);
 	
 	Author getAuthor(String user, String pass);
 	Author getAuthor(Integer id);

@@ -1,32 +1,27 @@
 package com.revature.services;
 
 import com.revature.models.Approval;
+import com.revature.repo.ApprovalRepo;
+import com.revature.repo.ApprovalRepoImpl;
 
 public class ApprovalServicesImpl implements ApprovalServices {
-
+	private ApprovalRepo appRepo = new ApprovalRepoImpl();
+	
 	@Override
-	public void updateApproval(Integer approvalId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addApproval(Integer approvalId) {
-		// TODO Auto-generated method stub
+	public Approval updateApproval(Approval app) {
+		appRepo.updateApproval(app);
+		return appRepo.getApproval(app.getApprovalId());
 		
 	}
 
 	@Override
 	public Approval getApprovalByStatus(Integer statusId) {
-		// TODO Auto-generated method stub
-		return null;
+		return appRepo.getApprovalByStatus(statusId);
 	}
 
 	@Override
 	public Approval getApproval(Integer approvalId) {
-		// TODO Auto-generated method stub
-		return null;
+		return appRepo.getApproval(approvalId);
 	}
-	
 
 }

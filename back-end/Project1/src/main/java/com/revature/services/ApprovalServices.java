@@ -4,9 +4,7 @@ import com.revature.models.Approval;
 
 public interface ApprovalServices {
 	
-	void updateApproval(Integer approvalId);
-	void addApproval(Integer approvalId);
-	
+	Approval updateApproval(Approval app);
 	Approval getApprovalByStatus(Integer statusId);
 	Approval getApproval(Integer approvalId);
 

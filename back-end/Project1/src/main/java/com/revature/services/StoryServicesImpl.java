@@ -3,31 +3,36 @@ package com.revature.services;
 import java.util.List;
 
 import com.revature.models.Story;
+import com.revature.repo.StoryRepo;
+import com.revature.repo.StoryRepoImpl;
 
 public class StoryServicesImpl implements StoryServices {
 
+	private StoryRepo stoRepo = new StoryRepoImpl();
+
 	@Override
 	public List<Story> getStories(Integer authorId) {
-		// TODO Auto-generated method stub
-		return null;
+		return stoRepo.getStories(authorId);
 	}
 
 	@Override
 	public Story getStory(Integer storyId) {
-		// TODO Auto-generated method stub
-		return null;
+		return stoRepo.getStoryById(storyId);
+
 	}
 
 	@Override
-	public void updateStory(Integer storyId) {
-		// TODO Auto-generated method stub
-		
+	public Story updateStory(Story story) {
+		stoRepo.updateStory(story);
+		return stoRepo.getStoryById(story.getStoryId());
 	}
 
 	@Override
-	public void addStory(Story story, Integer authorId) {
-		// TODO Auto-generated method stub
-		
+	public Story addStory(Story story, Integer authorId) {
+		return stoRepo.addStory(story, authorId);
+
 	}
+
+	
 
 }

@@ -8,30 +8,23 @@ import com.revature.repo.AuthorRepoImpl;
 public class AuthorServicesImpl implements AuthorServices {
 	private AuthorRepo authRepo = new AuthorRepoImpl();
 
-	@Override
-	public void addAuthor(Author a) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void updateAuthor(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Author getAuthor(String user, String pass) {
-
 		return authRepo.getAuthor(user, pass);
 	
 	}
 
 	@Override
 	public Author getAuthor(Integer id) {
-		
-		// TODO Auto-generated method stub
 		return authRepo.getAuthor(id);
+	}
+
+	@Override
+	public Author updateAuthor(Author auth) {
+		authRepo.updateAuthorPoints(auth);
+		return authRepo.getAuthor(auth.getAuthorId());
 	}
 
 }

@@ -19,11 +19,6 @@ public class AuthorRepoImpl implements AuthorRepo {
 		
 	}
 
-	@Override
-	public void updateAuthor(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Author getAuthor(String user, String pass) {
@@ -87,4 +82,21 @@ public class AuthorRepoImpl implements AuthorRepo {
 	
 	}
 
+	@Override
+	public void updateAuthorPoints(Author a) {
+		String sql = "update authors set author_points = ? where author_id = ?;";
+		try {
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, a.getAuthorPoints());
+			ps.setInt(2, a.getAuthorId());
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
+		
