@@ -98,6 +98,12 @@ function populateData(em) {
 
     emplworkArray.map(st => {
 
+
+
+
+
+
+
         // Story Container
         let stoBox = document.createElement('div');
         stoBox.setAttribute("class", "sto-box");
@@ -197,48 +203,7 @@ function populateData(em) {
             staBox.appendChild(staSeniorInfo);
         }
 
-        emplworkArray.map((st) => {
-            let sta = st.status;
-        
-        jSta = JSON.stringify(sta);
 
-
-        let psta = sta.status;
-        let pstaSelect = document.getElementById("ustat-sel")
-
-        // Dynamically added priority
-        if (prioExists) {
-            if (sta.priority) {
-                if (psta === "pending_senior") {
-                    if (eType === "senior") {
-                        let opt1 = document.createElement('option')
-                        opt1.innerHTML = st.storyId + ": " + st.title;
-                        opt1.setAttribute("value", jSta);
-                        pstaSelect.appendChild(opt1);
-                    }
-                } else {
-                    let opt1 = document.createElement('option')
-                    opt1.innerHTML = st.storyId + ": " + st.title;
-                    opt1.setAttribute("value", jSta);
-                    pstaSelect.appendChild(opt1);
-                }
-            }
-        } else {
-            if (psta === "pending_senior") {
-                if (eType === "senior") {
-                    let opt1 = document.createElement('option')
-                    opt1.innerHTML = st.storyId + ": " + st.title;
-                    opt1.setAttribute("value", jSta);
-                    pstaSelect.appendChild(opt1);
-                }
-            } else {
-                let opt1 = document.createElement('option')
-                opt1.innerHTML = st.storyId + ": " + st.title;
-                opt1.setAttribute("value", jSta);
-                pstaSelect.appendChild(opt1);
-            }
-        }
-    });
 
 
         //--------------------------------------
@@ -291,6 +256,49 @@ function populateData(em) {
         stoBox.appendChild(staBox);
         storySection.appendChild(stoBox);
     })
+
+    emplworkArray.map((st) => {
+        let sta = st.status;
+    
+    jSta = JSON.stringify(sta);
+
+
+    let psta = sta.status;
+    let pstaSelect = document.getElementById("ustat-sel")
+
+    // Dynamically added priority
+    if (prioExists) {
+        if (sta.priority) {
+            if (psta === "pending_senior") {
+                if (eType === "senior") {
+                    let opt1 = document.createElement('option')
+                    opt1.innerHTML = st.storyId + ": " + st.title;
+                    opt1.setAttribute("value", jSta);
+                    pstaSelect.appendChild(opt1);
+                }
+            } else {
+                let opt1 = document.createElement('option')
+                opt1.innerHTML = st.storyId + ": " + st.title;
+                opt1.setAttribute("value", jSta);
+                pstaSelect.appendChild(opt1);
+            }
+        }
+    } else {
+        if (psta === "pending_senior") {
+            if (eType === "senior") {
+                let opt1 = document.createElement('option')
+                opt1.innerHTML = st.storyId + ": " + st.title;
+                opt1.setAttribute("value", jSta);
+                pstaSelect.appendChild(opt1);
+            }
+        } else {
+            let opt1 = document.createElement('option')
+            opt1.innerHTML = st.storyId + ": " + st.title;
+            opt1.setAttribute("value", jSta);
+            pstaSelect.appendChild(opt1);
+        }
+    }
+});
 
 }
 
