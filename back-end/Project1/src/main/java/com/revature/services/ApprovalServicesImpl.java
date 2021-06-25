@@ -24,4 +24,9 @@ public class ApprovalServicesImpl implements ApprovalServices {
 		return appRepo.getApproval(approvalId);
 	}
 
+	@Override
+	public void addApproval(Approval zApp, Integer status_id) {
+		appRepo.addApproval(zApp, status_id);
+	}
+
 }

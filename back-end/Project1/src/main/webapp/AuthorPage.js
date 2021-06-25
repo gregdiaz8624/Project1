@@ -101,6 +101,13 @@ function populateData (at) {
     authorWelcome.setAttribute("class", "author-welcome") ;
     storySection.appendChild(authorWelcome);
 
+
+    // Current points
+    let authorPoints = document.createElement('p'); // may need a diff name than author points
+    authorPoints.innerHTML = "Current points: " + at.authorPoints;
+    authorPoints.setAttribute("class", "author-points");
+    storySection.appendChild(authorPoints);
+
     // Create a story button
 
     // Stories Container
@@ -114,7 +121,7 @@ function populateData (at) {
         stoBox.setAttribute("class", "sto-box");
         
         // Story Title
-        let stoTitle = document.createElement('p')
+        let stoTitle = document.createElement('h3')
         stoTitle.innerHTML = "Story Title: " + st.title;
         stoTitle.setAttribute("class", "sto-title");
         stoBox.appendChild(stoTitle);
@@ -155,17 +162,18 @@ function populateData (at) {
         let staBox = document.createElement('div')
         staBox.setAttribute("class", "sta-box");
 
-        // Status
-        let staStatus = document.createElement('p')
-        staStatus.innerHTML = "Status: " + sta.status;
-        staStatus.setAttribute("class", "sto-tagline");
-        staBox.appendChild(staStatus);
-
         // Status Date
         let staDate = document.createElement('p')
         staDate.innerHTML = "Pending Approval Date: " + sta.statusDate;
         staDate.setAttribute("class", "sto-completion-date");
         staBox.appendChild(staDate);
+
+         // Status
+         let staStatus = document.createElement('h5')
+         console.log(sta.status);
+         staStatus.innerHTML = "Status: " + sta.status.replace("_", " ");
+         staStatus.setAttribute("class", "sto-tagline");
+         staBox.appendChild(staStatus);
 
         //Assistant Info
         if (sta.assistantInfo != null) {
@@ -193,7 +201,7 @@ function populateData (at) {
 
         //--------------------------------------
         // Approval Object 
-        if (sta.status == "pending approval") {
+        if (st.status.status == "pending_approval") {
             let app = sta.approval;
             // Approval Box
             let appBox = document.createElement('div')
@@ -228,13 +236,6 @@ function populateData (at) {
         stoBox.appendChild(staBox);
         storySection.appendChild(stoBox);
     })
-
-
-    // Current points
-    let authorPoints = document.createElement('p'); // may need a diff name than author points
-    authorPoints.innerHTML = "Current points: " + at.authorPoints;
-    authorPoints.setAttribute("class", "author-points");
-    storySection.appendChild(authorPoints);
 
 
 }
@@ -300,7 +301,7 @@ function addStory(e) {
             genre: e.target["genre"].value,
             weight: e.target["weight"].value,
             status: {
-                status: "pending assistant approval",
+                status: "pending_assistant",
                 priority: false,
                 statusDate: "2021-06-25",
                 approval: {

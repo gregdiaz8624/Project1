@@ -35,7 +35,9 @@ public class StatusRepoImpl implements StatusRepo{
 			
 			if (rs.next()) {
 				Status s = new Status();
+				
 				s.setStatusId(rs.getInt("status_id"));
+				System.out.println("this is status" + s);
 				return s;
 			}			
 
@@ -69,7 +71,7 @@ public class StatusRepoImpl implements StatusRepo{
 				s.setSeniorInfo(rs.getString("senior_info"));
 				
 				s.setApproval(appRepo.getApprovalByStatus(s.getStatusId()));
-
+				System.out.println("this is the status " + s);
 				return s;
 			}
 
@@ -121,16 +123,15 @@ public class StatusRepoImpl implements StatusRepo{
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, st.getStatus());
-			ps.setBoolean(1, st.isPriority());
-			ps.setString(1, st.getStatusDate());
-			ps.setString(1, st.getAssistantInfo());
-			ps.setString(1, st.getAuthorInfo());
-			ps.setString(1, st.getGeneralInfo());
-			ps.setString(1, st.getSeniorInfo());
-			ps.setInt(1, st.getStatusId());
-
+			ps.setBoolean(2, st.isPriority());
+			ps.setString(3, st.getStatusDate());
+			ps.setString(4, st.getAssistantInfo());
+			ps.setString(5, st.getAuthorInfo());
+			ps.setString(6, st.getGeneralInfo());
+			ps.setString(7, st.getSeniorInfo());
+			ps.setInt(8, st.getStatusId());
 			ps.executeUpdate();
-			appRepo.updateApproval(st.getApproval());
+//			appRepo.updateApproval(st.getApproval());
 
 		} catch (SQLException e) {
 			e.printStackTrace();

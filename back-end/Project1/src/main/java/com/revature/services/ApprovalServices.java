@@ -7,5 +7,6 @@ public interface ApprovalServices {
 	Approval updateApproval(Approval app);
 	Approval getApprovalByStatus(Integer statusId);
 	Approval getApproval(Integer approvalId);
+	void addApproval(Approval zApp, Integer status_id);
 
 }

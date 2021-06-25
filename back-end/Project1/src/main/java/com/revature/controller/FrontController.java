@@ -62,6 +62,27 @@ public class FrontController extends HttpServlet {
 		}
 	}
 	
+	class tempApp {
+        public String approvalStatus;
+        public Integer approvalNumber;
+        public Integer statusId;
+        
+		public tempApp(String approvalStatus, Integer approvalNumber, Integer statusId) {
+			super();
+			this.approvalStatus = approvalStatus;
+			this.approvalNumber = approvalNumber;
+			this.statusId = statusId;
+		}
+
+		@Override
+		public String toString() {
+			return "tempApp [approvalStatus=" + approvalStatus + ", approvalNumber=" + approvalNumber + ", statusId="
+					+ statusId + "]";
+		}
+
+        
+	}
+	
 	private Gson gson = new Gson();
 	public static HttpSession session;
 
@@ -93,9 +114,9 @@ public class FrontController extends HttpServlet {
 		case "authorpage": {
 			System.out.println("Author Page loading");
 			Author alogg = (Author) session.getAttribute("logged_in");
-			System.out.println(alogg);
+
 			Author loggedAuthor = auths.getAuthor(alogg.getAuthorId());
-			System.out.println(loggedAuthor);
+
 			response.getWriter().append(gson.toJson(loggedAuthor));
 			System.out.println("Sent author object to front end");
 			break;
@@ -140,11 +161,9 @@ public class FrontController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		AuthorCred testA = new AuthorCred("greg", "1234");
+
 
 		String uri = request.getRequestURI();
-		String json = gson.toJson(testA);
-		System.out.println(json);
 
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		response.setHeader("Content-Type", "application/json");
@@ -189,7 +208,9 @@ public class FrontController extends HttpServlet {
 			Story story = gson.fromJson(request.getReader(), Story.class);
 			Author alogg = (Author) session.getAttribute("logged_in");
 			System.out.println(story);
-			stos.addStory(story, alogg.getAuthorId());
+			Story addedStory = stos.addStory(story, alogg.getAuthorId());
+			
+			ems.addEmployeeToStory(addedStory);
 			break;
 		}
 		
@@ -220,6 +241,16 @@ public class FrontController extends HttpServlet {
 			stas.updateStatus(status);
 			break;
 		}
+		
+		case "addapproval": {
+            tempApp tApp = gson.fromJson(request.getReader(), tempApp.class);
+            System.out.println(tApp + "hi");
+            Approval zApp = new Approval();
+            zApp.setApprovalStatus("committee");
+            zApp.setApprovalNumber(1);
+            apps.addApproval(zApp, tApp.statusId);
+            break;
+        }
 		
 		case "updateapproval": {
 			Approval app = gson.fromJson(request.getReader(), Approval.class);

@@ -1,6 +1,6 @@
 /* Author */
 
-.author-welcome {
+/* .author-welcome {
 
 }
 
@@ -10,11 +10,11 @@
 
 .sto-container {
 
-}
+} */
 
 /* Stories */
 
-.sto-box {
+/* .sto-box {
 
 }
 
@@ -36,15 +36,15 @@
 
 .sto-genre {
 
-}
+} */
 
 /* status */
 
-.sta-box {
+/* .sta-box { */
 
-}
+/* } */
 
-.sta-priority-high {
+/* .sta-priority-high {
 
 }
 
@@ -54,6 +54,11 @@
 
 /* Approval */
 
-.app-box {
+/* .app-box {
 
+} */ 
+
+
+h5 {
+    color:maroon
 }

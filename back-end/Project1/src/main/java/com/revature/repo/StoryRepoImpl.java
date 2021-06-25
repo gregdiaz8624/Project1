@@ -2,13 +2,14 @@ package com.revature.repo;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.models.Approval;
+//import com.revature.models.Approval;
 import com.revature.models.Status;
 import com.revature.models.Story;
 import com.revature.utils.JDBCConnection;
@@ -17,7 +18,7 @@ public class StoryRepoImpl implements StoryRepo {
 	
 	private Connection conn = JDBCConnection.getConnection();
 	private StatusRepo statRepo = new StatusRepoImpl();
-	private ApprovalRepo appRepo = new ApprovalRepoImpl();
+//	private ApprovalRepo appRepo = new ApprovalRepoImpl();
 
 	
 	@Override
@@ -72,9 +73,9 @@ public class StoryRepoImpl implements StoryRepo {
 				s.setCompletionDate(rs.getString("completion_date"));
 				s.setGenre(rs.getString("genre"));
 				s.setWeight(rs.getString("weight"));
-
+				System.out.println(s.getStoryId());
 				s.setStatus(statRepo.getStatusByStory(s.getStoryId()));
-
+				System.out.println("this is story 1" + s);
 				stories.add(s);
 			}
 			return stories;
@@ -92,7 +93,7 @@ public class StoryRepoImpl implements StoryRepo {
 		String sGen = story.getGenre();
 		String sWei = story.getWeight();
 		Status stat = story.getStatus();
-		Approval aApp = stat.getApproval();
+//		Approval aApp = stat.getApproval();
 
 		try {
 
@@ -144,12 +145,10 @@ public class StoryRepoImpl implements StoryRepo {
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				Integer aStoryId = rs.getInt("story_id");
+				System.out.println(aStoryId);
 				Status statId = statRepo.addStatus(stat, aStoryId);
-				
 				Integer astatId = statId.getStatusId();
-				System.out.println(astatId);
 				updateStoryStatus(astatId, aStoryId);
-
 				return getStoryById(aStoryId);
 				
 			}

@@ -12,6 +12,7 @@ public class StoryServicesImpl implements StoryServices {
 
 	@Override
 	public List<Story> getStories(Integer authorId) {
+		System.out.println("Services called");
 		return stoRepo.getStories(authorId);
 	}
 
