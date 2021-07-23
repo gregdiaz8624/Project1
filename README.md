@@ -17,14 +17,14 @@ Utilities: JDBC Connection Class to configure credentials and make connections t
 
 #### Features:
 
-Session Tracking
-HttpSession objects used to store and access session information (such as current logged in user and the professional development resource in question)
-AJAX Calls
-JavaScript is implemented for frent end design in order to send and receive asynchronous HTTP Requests and Responses
-HTML Design
-JavaScript used for DOM Manipulation
-Testing
-Feature file, step implementation, and runner class located in src/test folders in order to test user interaction on the login page (using Selenium WebDriver to automate user input and navigation)
+-Session Tracking
+-HttpSession objects used to store and access session information (such as current logged in user and the professional development resource in question)
+-AJAX Calls
+-JavaScript is implemented for frent end design in order to send and receive asynchronous HTTP Requests and Responses
+-HTML Design
+-JavaScript used for DOM Manipulation
+-Testing
+-Feature file, step implementation, and runner class located in src/test folders in order to test user interaction on the login page (using Selenium WebDriver to automate user input and navigation)
 
 #### JUnit:
 
@@ -39,13 +39,13 @@ Archiving of closed requests, while a table exists in the database, is not yet i
 #### Required Dependencies:
 
 The below dependencies are required in the pom.xml file in order to ensure proper execution.
-Testing
-JUnit v.4
-Database Access
-Java Servlet
-Oracle JDBC Driver
-Other
-Google Gson (for formatting/sending/receiving HttpRequest and HttpResponses
+-Testing
+-JUnit v.4
+-Database Access
+-Java Servlet
+-Oracle JDBC Driver
+-Other
+-Google Gson (for formatting/sending/receiving HttpRequest and HttpResponses
 
 ```
 <dependencies>
