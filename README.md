@@ -1,12 +1,12 @@
-#Story Pitch Management System (SPMS) - README
+# Story Pitch Management System (SPMS) - README
 
-##Gregory Diaz - 2105 Java MSA - Project 1
+## Gregory Diaz - 2105 Java MSA - Project 1
 
 This Project was completed to fulfill the requirements of Project 1 furing Training at Revature LLC.
 
 >The client was looking for a Web Application with which to  provide an organized pipeline for story pitches so that more new and creative stories can be given >the opportunity to be published. The resulting application allows authors to login, submit requests for story pitches, and check the status of their ?application. It also allows management to approve or deny requests.
 
-#####Package Structure:
+##### Package Structure:
 
 Models: Java Beans that represent tables in the Oracle SQL Database
 Repositories: Data Access Objects used to query the Database
@@ -15,7 +15,7 @@ Controllers: Application logic for handling HttpRequests and formatting HttpResp
 Servlets: HttpServlet to listen for incoming requests and send corresponding responses
 Utilities: JDBC Connection Class to configure credentials and make connections to the AWS RDS instance
 
-#####Features:
+##### Features:
 
 Session Tracking
 HttpSession objects used to store and access session information (such as current logged in user and the professional development resource in question)
@@ -36,7 +36,7 @@ Some appropriate imrpovements would be to implement a messaging service tied to 
 Implementation of file uploading is not functional yet.
 Archiving of closed requests, while a table exists in the database, is not yet implemented.
 
-#####Required Dependencies:
+##### Required Dependencies:
 
 The below dependencies are required in the pom.xml file in order to ensure proper execution.
 Testing
